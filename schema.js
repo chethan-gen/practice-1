@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     },
     passion:{
         type:String,
-        requires:true,
+        required:true,
     }
 });
 
