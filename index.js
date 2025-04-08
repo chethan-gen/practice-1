@@ -30,7 +30,7 @@ app.post('/post',async(req,res)=>{
         passion
     });
     try {
-        const savedUser = await User.save();
+        const savedUser = await newUser.save();
         res.json(savedUser)
     } catch (error) {
         return res.status(400).json({message:error.message})
@@ -70,15 +70,12 @@ app.delete('/delete/:id', async (req, res) => {
     }
   });
   
-await mongoose.connect(process.env.MONGODB_URL,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-}).then(()=>{
+await mongoose.connect(process.env.MONGODB_URL).then(()=>{
+    app.listen(PORT,()=>{
+        console.log(`http://localhost:${PORT}`)
+    })
     console.log("Database is connected successfully");
 }).catch((err)=>{
     console.log(object)
 })
 
-app.listen(PORT,()=>{
-    console.log(`http://localhost:${PORT}`)
-})
