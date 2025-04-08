@@ -69,7 +69,7 @@ app.delete('/delete/:id', async (req, res) => {
     }
   });
   
-await mongoose.connect(process.env.MONGODB_URL).then(()=>{
+mongoose.connect(process.env.MONGODB_URL).then(()=>{
     app.listen(PORT,()=>{
         console.log(`http://localhost:${PORT}`)
     })
