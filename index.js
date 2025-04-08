@@ -1,12 +1,11 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import User from './schema.js';
+const express = rquire("express");
+const mongoose = require("mongoose");
+const User = require("./schema")
 
 const app = express();
 app.use(express.json());
 const PORT =8080;
-
-import dotenv from 'dotenv';
+const dotenv = require("dotenv")
 dotenv.config();
 
 app.get('/',(req,res)=>{
